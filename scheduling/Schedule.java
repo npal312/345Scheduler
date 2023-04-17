@@ -1,13 +1,16 @@
 package scheduling;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Schedule {
     
-    private Availability available;
+    //private Availability available; //not needed anymore
+    private HashMap<String, Availability> employeeAvailability;
 
-    public Schedule(Availability available){
-        this.available = available;
+    public Schedule(HashMap<String, Availability> employeeAvailability){
+
+        this.employeeAvailability = employeeAvailability;
     }
 
     private boolean addAvailability(Availability availables){
@@ -15,7 +18,9 @@ public class Schedule {
     }
 
     public Availability editSchedule(){
-        return new Availability(new HashMap<>(1, 2), new HashMap<>(1, 2));
+        HashMap<String, ArrayList<String>> free = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<String>> busy = new HashMap<String, ArrayList<String>>();
+        return new Availability(free, busy);
     }
 
     public boolean confirmSchedule(){

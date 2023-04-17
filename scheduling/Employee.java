@@ -1,5 +1,6 @@
 package scheduling;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Employee {
@@ -27,11 +28,15 @@ public class Employee {
     //ADD INPUTS (like viewing schedule having a schedule input)
 
     private Availability uploadSchedule(){
-        return new Availability(new HashMap<>(1, 2), new HashMap<>(1, 2));
+        HashMap<String, ArrayList<String>> free = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<String>> busy = new HashMap<String, ArrayList<String>>();
+        return new Availability(free, busy);
     }
 
     private Availability manualSchedule(){
-        return new Availability(new HashMap<>(1, 2), new HashMap<>(1, 2));
+        HashMap<String, ArrayList<String>> free = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<String>> busy = new HashMap<String, ArrayList<String>>();
+        return new Availability(free, busy);
     }
 
     private boolean confirmAvailability(){
