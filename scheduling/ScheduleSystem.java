@@ -41,8 +41,17 @@ public class ScheduleSystem {
         return true;
     }
 
-    private Availability chooseSchedule(){
-        return new Availability(new HashMap<>(1, 2), new HashMap<>(1, 2));
+    private Schedule chooseSchedule(){
+        //put arraylist of schedules in there
+        //pick one
+
+        HashMap<String, ArrayList<String>> free = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<String>> busy = new HashMap<String, ArrayList<String>>();
+        Availability testing = new Availability(free, busy);
+        String help = "";
+        HashMap<String, Availability> test = new HashMap<String, Availability>();
+        Schedule finish = new Schedule(test);
+        return finish;
     }
 
     public boolean sendSchedule(){

@@ -17,10 +17,11 @@ public class Schedule {
         return true;
     }
 
-    public Availability editSchedule(){
+    public boolean editSchedule(HashMap<String, Availability> employeeAvailability){
         HashMap<String, ArrayList<String>> free = new HashMap<String, ArrayList<String>>();
         HashMap<String, ArrayList<String>> busy = new HashMap<String, ArrayList<String>>();
-        return new Availability(free, busy);
+        this.employeeAvailability = employeeAvailability;
+        return true;
     }
 
     public boolean confirmSchedule(){
