@@ -1,4 +1,6 @@
 package scheduling;
+import users.Employee;
+import users.Manager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +15,8 @@ public class ScheduleSystem {
     public ScheduleSystem(){
     }
 
-    private boolean inputContactInfo(){
+    private boolean inputContactInfo(ArrayList<String> information){
+        this.contactInfo = information;
         return true;
     }
 
