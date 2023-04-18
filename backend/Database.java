@@ -1,4 +1,11 @@
-package scheduling;
+package backend;
+import scheduling.Availability;
+import scheduling.Invitation;
+import scheduling.Schedule;
+import scheduling.ScheduleSystem;
+import users.Employee;
+import users.Manager;
+
 
 import java.util.ArrayList;
 
@@ -11,4 +18,6 @@ public class Database {
     }
 
     //maybe make add and delete for availabilities
+
+    //add 
 }
