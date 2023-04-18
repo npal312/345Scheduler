@@ -1,6 +1,6 @@
 package users;
 import scheduling.Availability;
-import scheduling.Database;
+import backend.Database;
 import scheduling.Invitation;
 import scheduling.Schedule;
 import scheduling.ScheduleSystem;
