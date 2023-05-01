@@ -48,8 +48,8 @@ public class ScheduleSystem {
         //put arraylist of schedules in there
         //pick one
 
-        HashMap<String, ArrayList<String>> free = new HashMap<String, ArrayList<String>>();
-        HashMap<String, ArrayList<String>> busy = new HashMap<String, ArrayList<String>>();
+        HashMap<String, ArrayList<int[]>> free = new HashMap<String, ArrayList<int[]>>();
+        HashMap<String, ArrayList<int[]>> busy = new HashMap<String, ArrayList<int[]>>();
         Availability testing = new Availability(free, busy);
         String help = "";
         HashMap<String, Availability> test = new HashMap<String, Availability>();

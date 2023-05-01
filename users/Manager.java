@@ -5,14 +5,10 @@ import scheduling.Invitation;
 import scheduling.Schedule;
 import scheduling.ScheduleSystem;
 
-public class Manager {
-    
-    private String username;
-    private String password;
+public class Manager extends Person{
 
-    public Manager(String username, String password){
-        this.username = username;
-        this.password = password;
+    public Manager(String username, String password, String email){
+        super(username, password, email);
     }
 
     private boolean createSchedule(){
