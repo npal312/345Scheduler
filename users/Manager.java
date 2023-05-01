@@ -7,6 +7,12 @@ import scheduling.ScheduleSystem;
 
 public class Manager extends Person{
 
+    /**
+     * contructor for manager
+     * @param username
+     * @param password
+     * @param email
+     */
     public Manager(String username, String password, String email){
         super(username, password, email);
     }
