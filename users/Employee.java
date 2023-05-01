@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//Employee class
 public class Employee extends Person{
     
     public String position;
@@ -19,6 +20,7 @@ public class Employee extends Person{
     public HashMap<String, int[]> busy;
     public final String[] DAYSOFWEEK = {"M", "T", "W", "Th", "F", "S", "Su"}; //week STARTS ON MONDAY
 
+    //constructing a user
     public Employee(String position, String username, String password, String email){
         super(username, password, email);
         this.position = position;
@@ -26,7 +28,14 @@ public class Employee extends Person{
         busy = new HashMap<String, int[]>();
     }
 
-
+    /**
+     * constructing a user with availability
+     * @param position
+     * @param username
+     * @param password
+     * @param email
+     * @param available
+     */
     public Employee(String position, String username, String password, String email, Availability available){
         super(username, password, email);
         this.position = position;
@@ -37,13 +46,23 @@ public class Employee extends Person{
 
 
     //ADD INPUTS (like viewing schedule having a schedule input)
-
+    /**
+     * Function for uploaing availability
+     */
     public Availability uploadSchedule(){
         HashMap<String, ArrayList<int[]>> free = new HashMap<String, ArrayList<int[]>>();
         HashMap<String, ArrayList<int[]>> busy = new HashMap<String, ArrayList<int[]>>();
         return new Availability(free, busy);
     }
 
+    /**
+     * Function to combine all the schedule to create the schedule
+     * @param days
+     * @param blocksOfFree
+     * @param daysBusy
+     * @param blocksOfBusy
+     * @return true if it works
+     */
     public boolean manualSchedule(String[] days, String[] blocksOfFree, String[] daysBusy, String[] blocksOfBusy){
         inputFree(days, blocksOfFree);
         inputBusy(daysBusy, blocksOfBusy);
@@ -64,6 +83,11 @@ public class Employee extends Person{
         }
     }
 
+    /**
+     * Employee input for available time
+     * @param days
+     * @param blocksOfTime
+     */
     public void inputFree(String[] days, String[] blocksOfTime){
         if (days.length != blocksOfTime.length){
             System.out.println("Invalid input (incorrect amount of days and blocks).");
@@ -87,6 +111,11 @@ public class Employee extends Person{
         }
     }
 
+    /**
+     * Employee input for unavailability
+     * @param days
+     * @param blocksOfTime
+     */
     public void inputBusy(String[] days, String[] blocksOfTime){ //to simplify adding busy blocks for simulation purposes
         
         if (days.length != blocksOfTime.length){
@@ -120,6 +149,11 @@ public class Employee extends Person{
         }
     }
 
+    /**
+     * converts time to integer array of the military time
+     * @param blockOfTime
+     * @return int array of military time
+     */
     public int[] timeEnter(String blockOfTime){ //will work for available and busy slots
         //written as 10:30AM-5:30PM
         String[] timeSplit = blockOfTime.split("-");
@@ -178,6 +212,14 @@ public class Employee extends Person{
 
     }
 
+    /**
+     * allows user to edit their availability
+     * @param editType
+     * @param day
+     * @param block
+     * @param blockOfTime
+     * @return true if works
+     */
     public boolean editAvailability(String editType, String day, int block, String blockOfTime){
         if (!day.equals("M") && !day.equals("T") && !day.equals("W") && !day.equals("Th") && !day.equals("F") && !day.equals("S") && !day.equals("Su")){
             System.out.println("Invalid input (incorrect day)."); //if not a valid day
@@ -201,6 +243,13 @@ public class Employee extends Person{
         return true;
     }
 
+    /**
+     * Allows a user to delete their availability
+     * @param deleteType
+     * @param day
+     * @param block
+     * @return true if works
+     */
     public boolean deleteAvailability(String deleteType, String day, int block){
         if (!day.equals("M") && !day.equals("T") && !day.equals("W") && !day.equals("Th") && !day.equals("F") && !day.equals("S") && !day.equals("Su")){
             System.out.println("Invalid input (incorrect day)."); //if not a valid day
@@ -224,6 +273,10 @@ public class Employee extends Person{
         return true;
     }
 
+    /**
+     * Confirms availability is valid, checker
+     * @return true if availability is confirmed
+     */
     public boolean confirmAvailability(){ //availability gets made here
         HashMap<String, ArrayList<int[]>> availableSlots = new HashMap<String, ArrayList<int[]>>();
         HashMap<String, ArrayList<int[]>> unavailableSlots = new HashMap<String, ArrayList<int[]>>();
@@ -329,6 +382,10 @@ public class Employee extends Person{
         return true;
     }
 
+    /**
+     * Saves the schedule to a .txt
+     * @throws FileNotFoundException
+     */
     public void saveSchedule() throws FileNotFoundException{
         String filename = new File("").getAbsolutePath() + "/backend/data/" + this.getUsername() + ".txt";
         File file = new File(filename);

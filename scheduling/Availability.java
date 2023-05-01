@@ -9,11 +9,19 @@ public class Availability {
     private HashMap<String, ArrayList<int[]>> unavailableSlots;
     public final String[] DAYSOFWEEK = {"M", "T", "W", "Th", "F", "S", "Su"}; //week STARTS ON MONDAY
 
+    /**
+     * Constructor for availability
+     * @param availableSlots
+     * @param unavailableSlots
+     */
     public Availability(HashMap<String, ArrayList<int[]>> availableSlots, HashMap<String, ArrayList<int[]>> unavailableSlots){
         this.availableSlots = availableSlots;
         this.unavailableSlots = unavailableSlots;
     }
 
+    /**
+     * Availability toString() method
+     */
     public String toString(){
 
         StringBuilder sb = new StringBuilder();

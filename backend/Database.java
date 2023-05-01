@@ -8,7 +8,7 @@ import users.Manager;
 
 
 import java.util.ArrayList;
-
+//Database class
 public class Database {
     
     private ArrayList<Availability> employeeAvailabilities;
