@@ -13,7 +13,9 @@ public class Schedule {
         this.employeeAvailability = employeeAvailability;
     }
 
-    private boolean addAvailability(Availability availables){
+    private boolean addAvailability(String employeeName, Availability availables){
+        this.employeeAvailability.put(employeeName, availables);
+        System.out.println("Availability added.");
         return true;
     }
 
@@ -21,11 +23,23 @@ public class Schedule {
         HashMap<String, ArrayList<String>> free = new HashMap<String, ArrayList<String>>();
         HashMap<String, ArrayList<String>> busy = new HashMap<String, ArrayList<String>>();
         this.employeeAvailability = employeeAvailability;
+        System.out.println("Schedule updated.");
         return true;
     }
 
-    public boolean confirmSchedule(){
-        return true;
+    public boolean confirmSchedule(String choice){
+        if (choice.equals("y")){
+            System.out.println("Schedule confirmed.");
+            return true;
+        }
+        else if (choice.equals("n")){
+            System.out.println("Please make the necessary changes to the Schedule.");
+            return false;
+        }
+        else{
+            System.out.println("Invalid input.");
+            return false;
+        }
     }
 
 }

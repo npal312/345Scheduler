@@ -17,14 +17,18 @@ public class ScheduleSystem {
 
     private boolean inputContactInfo(ArrayList<String> information){
         this.contactInfo = information;
+        System.out.println("Contact info received.");
         return true;
     }
 
     private boolean createInvitation(){
+        this.invite = new Invitation(contactInfo, constraints);
+        System.out.println("Invitation created.");
         return true;
     }
 
     private boolean sendInvitation(){
+        System.out.println("Invitation sent!");
         return true;
     }
 
