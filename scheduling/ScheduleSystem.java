@@ -7,32 +7,32 @@ import java.util.HashMap;
 
 public class ScheduleSystem {
     private ArrayList<Availability> totalAvailable;
-    private String constraints;
-    private Invitation invite;
-    private Schedule finalizedSchedule;
+    public String constraints;
+    public Invitation invite;
+    public Schedule finalizedSchedule;
     public ArrayList<String> contactInfo;
 
     public ScheduleSystem(){
     }
 
-    private boolean inputContactInfo(ArrayList<String> information){
+    public boolean inputContactInfo(ArrayList<String> information){
         this.contactInfo = information;
         System.out.println("Contact info received.");
         return true;
     }
 
-    private boolean createInvitation(){
+    public boolean createInvitation(){
         this.invite = new Invitation(contactInfo, constraints);
         System.out.println("Invitation created.");
         return true;
     }
 
-    private boolean sendInvitation(){
+    public boolean sendInvitation(){
         System.out.println("Invitation sent!");
         return true;
     }
 
-    private boolean availabilityAlert(){
+    public boolean availabilityAlert(){
         System.out.println("Alert: Availability has been entered.");
         return true;
     }

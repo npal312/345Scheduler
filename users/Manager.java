@@ -38,7 +38,7 @@ public class Manager extends Person{
         }
     }
 
-    private boolean sendInvitation(){
+    public boolean sendInvitation(){
         System.out.println("Invitation sent!");
         return true;
     }

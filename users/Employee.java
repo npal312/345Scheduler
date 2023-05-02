@@ -8,6 +8,7 @@ import scheduling.ScheduleSystem;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -109,6 +110,7 @@ public class Employee extends Person{
         for (int i = 0; i < days.length; i++){
             this.free.put(days[i], timeEnter(blocksOfTime[i]));
         }
+        System.out.println("Free blocks inputted for " + this.getUsername());
     }
 
     /**
@@ -147,6 +149,8 @@ public class Employee extends Person{
                 }
             }
         }
+
+        System.out.println("Busy blocks inputted for " + this.getUsername());
     }
 
     /**
@@ -205,8 +209,8 @@ public class Employee extends Person{
                 break;
             }
         }
-        System.out.println(timeBlock[0]);
-        System.out.println(timeBlock[1]);
+        //System.out.println(timeBlock[0]);
+        //System.out.println(timeBlock[1]);
 
         return timeBlock;
 
@@ -341,11 +345,11 @@ public class Employee extends Person{
                 }
                 else{
 
-                    System.out.println();
+                /*     System.out.println();
                 for (int z = 0; z < slots.size(); z++){
                     System.out.println(slots.get(z)[0] + " - " + slots.get(z)[1]);
                 }
-                System.out.println();
+                System.out.println();*/
 
                     if (slots.get(0)[0] != slots.get(1)[0]){ //if they start at the same time
                         int[] slotOne = {slots.get(0)[0], slots.get(1)[0]};
@@ -379,6 +383,7 @@ public class Employee extends Person{
         }
 
         this.available = new Availability(availableSlots, unavailableSlots);
+        System.out.println("Availability created for " + this.getUsername());
         return true;
     }
 
@@ -392,6 +397,7 @@ public class Employee extends Person{
         PrintWriter logger = new PrintWriter(file);
         logger.println(this.available.toString());
         logger.close();
+        System.out.println("Availability has been saved. Sending alert now.");
     }
 
     private boolean viewSchedule(){ //for end of project when schedule is out
@@ -400,21 +406,55 @@ public class Employee extends Person{
     }
 
     public static void main(String[] args) throws FileNotFoundException{
-        Employee Jerry = new Employee("worker", "jworker", "123", "jerry@gmail.com");
 
-        //Jerry.free.put("M", Jerry.timeEnter("10:30AM-5:30PM"));
-        //System.out.println(Jerry.free.get("M"));
+
+        HashMap<String, Availability> test = new HashMap<String, Availability>();
+        ScheduleSystem systemTest = new ScheduleSystem();
+        Schedule system = new Schedule(test);
+        ArrayList<String> information = new ArrayList<String>();
+
+        Employee jerry = new Employee("worker", "jworker", "123", "jerry@gmail.com");
+        Employee alfonso = new Employee("slightly better worker", "anotherworker", "badPassword", "alfonso@gmail.com");
+
+        information.add(jerry.getEmail());
+        information.add(alfonso.getEmail());
+
+        systemTest.inputContactInfo(information);
+        systemTest.constraints = "";
+        systemTest.createInvitation();
+        systemTest.sendInvitation();
+        System.out.println();
 
         String[] daysOne = {"M", "T", "W", "Th", "F", "S", "Su"};
         String[] blocksOne = {"10:30AM-5:30PM", "9:30AM-4:30PM", "11:30AM-6:00PM", "12:00AM-11:30PM", "12:00AM-12:00PM", "10:30AM-5:30PM", "10:30AM-5:30PM"};
         String[] daysTwo = {"M", "T", "Th", "M"};
         String[] blocksTwo = {"12:30PM-2:00PM", "10:30AM-12:00PM", "9:00PM-10:00PM", "3:30PM-4:00PM"};
 
-        Jerry.manualSchedule(daysOne, blocksOne, daysTwo, blocksTwo);
+        jerry.manualSchedule(daysOne, blocksOne, daysTwo, blocksTwo);
 
-        System.out.println(Jerry.available.toString());
-        Jerry.saveSchedule();
-        //System.out.println(new File("").getAbsolutePath() + "/backend/data");
+        //System.out.println(jerry.available.toString());
+        system.addAvailability("jerry", jerry.available);
+        jerry.saveSchedule();
+
+        systemTest.availabilityAlert();
+        System.out.println();
+
+
+        String[] daysThree = {"M", "T", "W", "Th", "F", "Su"};
+        String[] blocksThree = {"6:00PM-11:30PM", "12:30PM-9:45PM", "1:30AM-12:00PM", "8:00AM-5:30PM", "12:00AM-12:00PM", "10:30AM-5:30PM"};
+        String[] daysFour = {"T", "T", "T", "Th", "M"};
+        String[] blocksFour = {"1:30PM-4:00PM", "5:30PM-6:00PM", "7:30PM-8:45PM", "9:00AM-11:00AM", "7:30PM-8:00PM"};
+
+        alfonso.manualSchedule(daysThree, blocksThree, daysFour, blocksFour);
+
+        //System.out.println(alfonso.available.toString());
+        system.addAvailability("alfonso", alfonso.available);
+        alfonso.saveSchedule();
+
+        systemTest.availabilityAlert();
+        
+        systemTest.finalizedSchedule = system;
+
     }
 
 }

@@ -13,7 +13,7 @@ public class Schedule {
         this.employeeAvailability = employeeAvailability;
     }
 
-    private boolean addAvailability(String employeeName, Availability availables){
+    public boolean addAvailability(String employeeName, Availability availables){
         this.employeeAvailability.put(employeeName, availables);
         System.out.println("Availability added.");
         return true;
