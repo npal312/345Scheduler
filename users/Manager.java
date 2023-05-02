@@ -21,16 +21,10 @@ public class Manager extends Person{
         System.out.println("Creating schedule.");
         return true;
     }
-    
-    private boolean setConstraints(){
-        System.out.println("Constraints set");
-        return true;
-    }
 
-<<<<<<< HEAD
-    private String setConstraints(){
+    private boolean setConstraints(){
         System.out.println("Constraints set.");
-        return "";
+        return true;
     }
 
     public boolean receiveAlert(boolean alert){
@@ -49,7 +43,9 @@ public class Manager extends Person{
         return true;
     }
 
+    public boolean sendSchedule(){
+        System.out.println("Schedule has been sent out.");
+        return true;
+    }
+
 }
-=======
-}
->>>>>>> 0c73f3b213be513c5cd96357eb0481be72b2bd84
