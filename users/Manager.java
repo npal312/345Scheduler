@@ -21,5 +21,10 @@ public class Manager extends Person{
         System.out.println("Creating schedule.");
         return true;
     }
+    
+    private boolean setConstraints(){
+        System.out.println("Constraints set");
+        return true;
+    }
 
 }
