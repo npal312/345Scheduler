@@ -22,4 +22,25 @@ public class Manager extends Person{
         return true;
     }
 
+    private String setConstraints(){
+        System.out.println("Constraints set.");
+        return "";
+    }
+
+    public boolean receiveAlert(boolean alert){
+        if (alert){
+            System.out.println("Alert received.");
+            return true;
+        }
+        else{
+            System.out.println();
+            return false;
+        }
+    }
+
+    private boolean sendInvitation(){
+        System.out.println("Invitation sent!");
+        return true;
+    }
+
 }
