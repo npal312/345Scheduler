@@ -21,7 +21,13 @@ public class Manager extends Person{
         System.out.println("Creating schedule.");
         return true;
     }
+    
+    private boolean setConstraints(){
+        System.out.println("Constraints set");
+        return true;
+    }
 
+<<<<<<< HEAD
     private String setConstraints(){
         System.out.println("Constraints set.");
         return "";
@@ -44,3 +50,6 @@ public class Manager extends Person{
     }
 
 }
+=======
+}
+>>>>>>> 0c73f3b213be513c5cd96357eb0481be72b2bd84
