@@ -18,6 +18,7 @@ public class Manager extends Person{
     }
 
     private boolean createSchedule(){
+        System.out.println("Creating schedule.");
         return true;
     }
 

@@ -33,19 +33,27 @@ public class ScheduleSystem {
     }
 
     private boolean availabilityAlert(){
+        System.out.println("Alert: Availability has been entered.");
         return true;
     }
 
     private String setConstraints(){
+        System.out.println("Constraints set.");
         return "";
     }
 
     private boolean createPotentialSchedules(ArrayList<Availability> totalAvailable, String str){
+        System.out.println("Schedule 1: Cool, Schedule 2: Created, Schedule 3: Finished");
         return true; //maybe return arraylist of schedules instead of boolean
     }
 
-    private boolean checkIfPossible(){
-        return true;
+    private boolean checkIfPossible(boolean poss){
+        if (poss){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     private Schedule chooseSchedule(){
@@ -62,6 +70,7 @@ public class ScheduleSystem {
     }
 
     public boolean sendSchedule(){
+        System.out.println("Schedule has been sent out.");
         return true;
     }
 

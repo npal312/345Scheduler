@@ -69,6 +69,7 @@ public class Availability {
     }
 
     private boolean formatAvailability(){
+        System.out.println("Availability has been formatted.");
         return true;
     }
 

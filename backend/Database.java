@@ -17,7 +17,4 @@ public class Database {
         this.employeeAvailabilities = employeeAvailabilities;
     }
 
-    //maybe make add and delete for availabilities
-
-    //add 
 }

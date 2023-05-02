@@ -12,13 +12,13 @@ public class Invitation {
         this.timeInterval = timeInterval;
     }
 
-    private boolean inputContactInfo(contactInfo){
+    private boolean inputContactInfo(ArrayList<String> contactInfo){
         this.contactInfo = contactInfo;
         System.out.println("You entered your contact info");
         return true;
     }
 
-    private boolean inputTimeInterval(timeInterval){
+    private boolean inputTimeInterval(String timeInterval){
         this.timeInterval = timeInterval;
         System.out.println("You entered in your Time Interval");
         return true;

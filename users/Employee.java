@@ -395,6 +395,7 @@ public class Employee extends Person{
     }
 
     private boolean viewSchedule(){ //for end of project when schedule is out
+        System.out.println("Wow, thats's a nice schedule.");
         return true;
     }
 
