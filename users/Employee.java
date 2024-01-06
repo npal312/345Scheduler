@@ -426,7 +426,7 @@ public class Employee extends Person{
         System.out.println();
 
         String[] daysOne = {"M", "T", "W", "Th", "F", "S", "Su"};
-        String[] blocksOne = {"10:30AM-5:30PM", "9:30AM-4:30PM", "11:30AM-6:00PM", "12:00AM-11:30PM", "12:00AM-12:00PM", "10:30AM-5:30PM", "10:30AM-5:30PM"};
+        String[] blocksOne = {"10:30AM-5:30PM", "9:30AM-4:30PM", "11:30AM-3:00PM", "12:00AM-11:30PM", "12:00AM-12:00PM", "10:30AM-11:30PM", "10:30AM-5:30PM"};
         String[] daysTwo = {"M", "T", "Th", "M"};
         String[] blocksTwo = {"12:30PM-2:00PM", "10:30AM-12:00PM", "9:00PM-10:00PM", "3:30PM-4:00PM"};
 
